@@ -3,14 +3,13 @@ sys.setrecursionlimit(3000000)
 
 def solution(R, C):
     global count
-    for r in rx:
-        for c in ry:
-            rrx = R+r
-            rry = C+c
-            if 0 <= rrx < N and 0 <= rry < N and matrix[rrx][rry] == 1 and danji[rrx][rry] == 0:
-                count+=1
-                danji[rrx][rry] = num
-                solution(rrx, rry)
+    for i in range(4):
+        rrx = R+rx[i]
+        rry = C+ry[i]
+        if 0 <= rrx < N and 0 <= rry < N and matrix[rrx][rry] == 1 and danji[rrx][rry] == 0:
+            count+=1
+            danji[rrx][rry] = num
+            solution(rrx, rry)
 
 N = int(input())
 matrix = []
@@ -21,15 +20,15 @@ for _ in range(N):
     matrix.append(list(map(int, input())))
 
 num = 1
-count = 0
+count = 1
 answer = []
 for i in range(N):
     for j in range(N):
         if matrix[i][j] != 0 and danji[i][j] == 0:
             solution(i, j)
-            answer.append(count)
+            answer.append(count-1 if count !=1 else count)
             num+=1
-            count = 0
+            count = 1
 print(len(answer))
 for a in sorted(answer):
     print(a)
