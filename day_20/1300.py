@@ -19,3 +19,11 @@ def solution():
 N = int(sys.stdin.readline())
 K = int(sys.stdin.readline())
 solution()
+
+
+# 이분 탐색
+# 10 * 10 에서 20보다 작은 수를 구하면
+# 1*20 -> 20 // 1 = 20
+# 2*10 -> 20 // 2 = 10
+# 3*6  -> 20 // 3 = 6
+# 행을 해당 수로 나누면 해당수보다 작은 수의 개수를 확인 가능 
