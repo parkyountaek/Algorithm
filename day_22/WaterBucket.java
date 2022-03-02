@@ -15,7 +15,7 @@ public class WaterBucket{
 
     while(true) {
       int tmp = N + store;
-      int count = 0; // K와 비교하기 위해 개수 셈, 합쳐지지 못하고 남은 병의 수(2의 n승이 아닐때 count 증가됨)
+      int count = 0; // K와 비교하기 위해 개수 셈, 합쳐지지 못하고 남은 병의 수(2의 n승이 아닐때 count 증가됨!)
       while(tmp > 0) {
         if(tmp % 2 != 0)
           count++;
