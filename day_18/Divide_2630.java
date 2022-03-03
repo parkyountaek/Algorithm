@@ -1,3 +1,5 @@
+package day_18;
+
 import java.io.*;
 import java.util.StringTokenizer;
 
