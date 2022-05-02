@@ -7,7 +7,7 @@ import java.util.StringTokenizer;
 
 public class Fibonacci {
   static int T, N;
-  static Integer[][] dp = new Integer[2][41];;
+  static Integer[][] dp = new Integer[2][41];
 
   public static void main(String[] args) throws IOException {
     BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
