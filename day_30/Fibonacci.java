@@ -30,7 +30,7 @@ public class Fibonacci {
     if (dp[0][n] != null && dp[0][1] != null)
       return;
     for (int i = 2; i <= n; i++) {
-      if (dp[0][i] == null & dp[1][i] == null) {
+      if (dp[0][i] == null && dp[1][i] == null) {
         dp[0][i] = dp[0][i - 2] + dp[0][i - 1];
         dp[1][i] = dp[1][i - 2] + dp[1][i - 1];
       }
