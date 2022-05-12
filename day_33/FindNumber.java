@@ -28,8 +28,12 @@ public class FindNumber {
 
     st = new StringTokenizer(br.readLine());
     for (int i = 0; i < M; i++) {
-      System.out.println(Arrays.binarySearch(A, Integer.parseInt(st.nextToken())));
-    }
+      int result = Arrays.binarySearch(A, Integer.parseInt(st.nextToken()));
 
+      if (result >= 0)
+        System.out.println("1");
+      else
+        System.out.println("0");
+    }
   }
 }
