@@ -1,8 +1,6 @@
 package day_37;
 
 import java.util.*;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 public class FunctionDevelop {
   public static void main(String[] args) {
