@@ -20,14 +20,8 @@ public class Sudoku {
       }
     }
 
-    for (int i = 0; i < SUDOKU_SIZE; i++) {
-      for (int j = 0; j < SUDOKU_SIZE; j++) {
-        if (problem[i][j] == 0) {
-          solution(i, j);
-          return;
-        }
-      }
-    }
+    solution(0, 0);
+
   }
 
   public static void print(int[][] matrix) {
@@ -47,7 +41,7 @@ public class Sudoku {
 
     if (r == SUDOKU_SIZE) {
       print(problem);
-      return;
+      System.exit(0);
     }
 
     if (problem[r][c] == 0) {
