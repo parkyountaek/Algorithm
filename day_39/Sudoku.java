@@ -24,7 +24,6 @@ public class Sudoku {
       for (int j = 0; j < SUDOKU_SIZE; j++) {
         if (problem[i][j] == 0) {
           solution(i, j);
-
           return;
         }
       }
@@ -41,7 +40,6 @@ public class Sudoku {
   }
 
   public static void solution(int r, int c) {
-    System.out.println(r + "    " + c);
     if (c == SUDOKU_SIZE) {
       solution(r + 1, 0);
       return;
@@ -56,7 +54,6 @@ public class Sudoku {
       for (int i = 1; i <= SUDOKU_SIZE; i++) {
         if (squardCheck(r, c, i, problem) && verticalCheck(c, i, problem) && horizontalCheck(i, problem[r])) {
           problem[r][c] = i;
-
           solution(r, c + 1);
         }
       }
@@ -75,7 +72,7 @@ public class Sudoku {
 
     for (int i = startR; i < endR; i++) {
       for (int j = startC; j < endC; j++) {
-        if (matrix[i][j] != 0 && matrix[i][j] == v) {
+        if (matrix[i][j] == v) {
           return false;
         }
       }
@@ -87,7 +84,7 @@ public class Sudoku {
   // 세로 확인
   public static boolean verticalCheck(int c, int v, int[][] matrix) {
     for (int i = 0; i < SUDOKU_SIZE; i++) {
-      if (matrix[i][c] != 0 && matrix[i][c] == v)
+      if (matrix[i][c] == v)
         return false;
     }
     return true;
@@ -96,7 +93,7 @@ public class Sudoku {
   // 가로 확인
   public static boolean horizontalCheck(int v, int[] matrix) {
     for (int i = 0; i < SUDOKU_SIZE; i++) {
-      if (matrix[i] != 0 && matrix[i] == v)
+      if (matrix[i] == v)
         return false;
     }
 
