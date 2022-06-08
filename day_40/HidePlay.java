@@ -27,7 +27,7 @@ public class HidePlay {
     N = Integer.parseInt(st.nextToken());
     K = Integer.parseInt(st.nextToken());
     queue = new LinkedList<>();
-    visited = new boolean[K + 1];
+    visited = new boolean[100001];
     bfs();
 
     // Runtime.getRuntime().gc();
@@ -46,7 +46,7 @@ public class HidePlay {
         System.out.println(current.time);
         return;
       }
-      if (current.position - 1 < visited.length && !visited[current.position - 1]) {
+      if (0 <= current.position - 1 && !visited[current.position - 1]) {
         queue.add(new Location(current.time + 1, current.position - 1));
         visited[current.position - 1] = true;
       }
