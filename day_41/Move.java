@@ -22,7 +22,6 @@ public class Move {
 
   static int N;
   static int M;
-  static int answer;
   static int[][] map;
   static boolean[][] visited;
   static int[][] canMove = {
@@ -41,7 +40,6 @@ public class Move {
     queue = new LinkedList<>();
     map = new int[N][M];
     visited = new boolean[N][M];
-    answer = Integer.MAX_VALUE;
 
     for (int i = 0; i < N; i++) {
       st = new StringTokenizer(br.readLine());
@@ -62,8 +60,8 @@ public class Move {
       Location current = queue.poll();
 
       if (current.r == N - 1 && current.c == M - 1) {
-        if (answer > current.distance)
-          answer = current.distance;
+        System.out.println(current.distance);
+        return;
       }
 
       for (int i = 0; i < canMove.length; i++) {
@@ -83,9 +81,6 @@ public class Move {
         }
       }
     }
-    if (answer == Integer.MAX_VALUE)
-      System.out.println("-1");
-    else
-      System.out.println(answer);
+    System.out.println("-1");
   }
 }
