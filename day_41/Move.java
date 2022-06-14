@@ -70,7 +70,7 @@ public class Move {
 
         if ((0 <= nextR && nextR < N) && (0 <= nextC && nextC < M)) {
           if (map[nextR][nextC] == 0) { // 벽이 아니면
-            if (current.isCrash && !visited[nextR][nextC][0]) { // 벽을 부쉈으면
+            if (current.isCrash && !visited[nextR][nextC][1]) { // 벽을 부쉈으면
               visited[nextR][nextC][1] = true;
               queue.add(new Location(nextR, nextC, current.distance + 1, current.isCrash));
             } else if (!current.isCrash && !visited[nextR][nextC][0]) { // 부수지 않았으면
