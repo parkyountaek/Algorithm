@@ -23,7 +23,7 @@ public class Move {
   static int N;
   static int M;
   static int[][] map;
-  static boolean[][] visited;
+  static boolean[][][] visited;
   static int[][] canMove = {
       { -1, 0 },
       { 1, 0 },
@@ -39,7 +39,7 @@ public class Move {
     M = Integer.parseInt(st.nextToken());
     queue = new LinkedList<>();
     map = new int[N][M];
-    visited = new boolean[N][M];
+    visited = new boolean[N][M][2];
 
     for (int i = 0; i < N; i++) {
       st = new StringTokenizer(br.readLine());
@@ -54,7 +54,7 @@ public class Move {
 
   public static void bfs(int r, int c, boolean isCrash) {
     queue.add(new Location(r, c, 1, isCrash));
-    visited[r][c] = true;
+    visited[r][c][0] = true;
 
     while (!queue.isEmpty()) {
       Location current = queue.poll();
@@ -68,13 +68,18 @@ public class Move {
         int nextR = current.r + canMove[i][0];
         int nextC = current.c + canMove[i][1];
 
-        if ((0 <= nextR && nextR < N) && (0 <= nextC && nextC < M && !visited[nextR][nextC])) {
+        if ((0 <= nextR && nextR < N) && (0 <= nextC && nextC < M)) {
           if (map[nextR][nextC] == 0) { // 벽이 아니면
-            visited[nextR][nextC] = true;
-            queue.add(new Location(nextR, nextC, current.distance + 1, current.isCrash));
+            if (current.isCrash && !visited[nextR][nextC][0]) { // 벽을 부쉈으면
+              visited[nextR][nextC][1] = true;
+              queue.add(new Location(nextR, nextC, current.distance + 1, current.isCrash));
+            } else if (!current.isCrash && !visited[nextR][nextC][0]) { // 부수지 않았으면
+              visited[nextR][nextC][0] = true;
+              queue.add(new Location(nextR, nextC, current.distance + 1, current.isCrash));
+            }
           } else { // 벽이면
-            if (!current.isCrash) {
-              visited[nextR][nextC] = true;
+            if (!current.isCrash) { // 벽을 부순다
+              visited[nextR][nextC][1] = true;
               queue.add(new Location(nextR, nextC, current.distance + 1, true));
             }
           }
