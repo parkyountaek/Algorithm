@@ -24,7 +24,6 @@ public class GoodSequence {
       if (isGood(answer + candidate.toString()))
         make(answer + candidate.toString());
     }
-
   }
 
   public static boolean isGood(String sequence) {
