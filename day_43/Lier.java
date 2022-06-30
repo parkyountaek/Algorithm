@@ -14,6 +14,7 @@ public class Lier {
   static HashMap<Integer, Boolean> knowPeople;
   static int answer;
 
+  /* not yet */
   public static void main(String[] args) throws IOException {
     BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
     StringTokenizer st = new StringTokenizer(br.readLine());

@@ -3,9 +3,9 @@ package day_36;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Arrays;
 import java.util.StringTokenizer;
 
+/* not yet */
 public class CountOfBooks {
   static int N;
   static int[] counts = new int[10];
