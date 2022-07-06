@@ -3,7 +3,6 @@ package day_47;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Arrays;
 import java.util.StringTokenizer;
 
 public class Baekjoon_1976 {
@@ -29,8 +28,6 @@ public class Baekjoon_1976 {
         }
       }
     }
-
-    System.out.println(Arrays.toString(parent));
 
     st = new StringTokenizer(br.readLine());
     int current = Integer.parseInt(st.nextToken());
