@@ -13,7 +13,6 @@ public class BaekJoon_14502 {
   static int N;
   static int M;
   static int count;
-  static int totalCount;
   static int[] moveR = { -1, 1, 0, 0 };
   static int[] moveC = { 0, 0, -1, 1 };
   static Queue<Location> queue;
@@ -39,42 +38,45 @@ public class BaekJoon_14502 {
     for (int i = 0; i < N; i++) {
       st = new StringTokenizer(br.readLine());
       for (int j = 0; j < M; j++) {
-        int value = Integer.parseInt(st.nextToken());
-        board[i][j] = value;
-        if (value == 2) {
-          queue.add(new Location(i, j));
-        }
+        board[i][j] = Integer.parseInt(st.nextToken());
       }
     }
 
-    makeWall(0, board);
+    makeWall(0);
     System.out.println(count);
-    System.out.println(totalCount);
   }
 
-  public static void makeWall(int depth, int[][] matrix) {
+  public static void makeWall(int depth) {
     if (depth == 3) {
-      bfs(matrix);
+      bfs();
       return;
     }
-    totalCount++;
     int[][] copyMatrix = new int[N][M];
     for (int i = 0; i < N; i++) {
-      copyMatrix[i] = Arrays.copyOfRange(matrix[i], 0, M);
+      copyMatrix[i] = Arrays.copyOfRange(board[i], 0, M);
     }
     for (int i = 0; i < N; i++) {
       for (int j = 0; j < M; j++) {
-        if (copyMatrix[i][j] == 0) {
-          copyMatrix[i][j] = 1;
-          makeWall(depth + 1, copyMatrix);
-          copyMatrix[i][j] = 0;
+        if (board[i][j] == 0) {
+          board[i][j] = 1;
+          makeWall(depth + 1);
+          board[i][j] = 0;
         }
       }
     }
   }
 
-  public static void bfs(int[][] matrix) {
+  public static void bfs() {
     Queue<Location> Q = new LinkedList<>(queue);
+    int[][] matrix = new int[N][M];
+
+    for (int i = 0; i < N; i++) {
+      matrix[i] = board[i].clone();
+      for (int j = 0; j < M; j++) {
+        if (board[i][j] == 2)
+          Q.add(new Location(i, j));
+      }
+    }
 
     while (!Q.isEmpty()) {
       Location current = Q.poll();
@@ -100,19 +102,6 @@ public class BaekJoon_14502 {
       for (int j = 0; j < M; j++)
         if (matrix[i][j] == 0)
           c++;
-    if (c > count) {
-      count = c;
-      System.out.println(c);
-      printMatrix(matrix);
-    }
-    // count = Math.max(c, count);
-  }
-
-  public static void printMatrix(int[][] matrix) {
-    System.out.println("=".repeat(25));
-    for (int i = 0; i < matrix.length; i++)
-      System.out.println(Arrays.toString(matrix[i]));
-
-    System.out.println("=".repeat(25));
+    count = Math.max(c, count);
   }
 }
