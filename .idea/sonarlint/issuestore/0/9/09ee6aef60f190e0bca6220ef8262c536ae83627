@@ -1,0 +1,19 @@
+
+g	java:S101	"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(ññô”ýÿÿÿÿ
+=
+java:S2189""Add an end condition to this loop.(˜ïˆžÿÿÿÿÿ
+g
+java:S3008
+"LRename this field "N" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ûîèõþÿÿÿÿ
+h	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¾ò…¬üÿÿÿÿ
+E
+java:S1172"*Remove this unused method parameter "set".(¾ò…¬üÿÿÿÿ
+[
+java:S1659"@Declare "end" and all following declarations on a separate line.(øßä©øÿÿÿÿ
+E
+java:S1481"*Remove this unused "start" local variable.(øßä©øÿÿÿÿ
+C
+java:S1481"(Remove this unused "end" local variable.(øßä©øÿÿÿÿ
+E
+java:S1481"*Remove this unused "total" local variable.(øßä©øÿÿÿÿ
+C	java:S108")Either remove or fill this block of code.(˜ïˆžÿÿÿÿÿ
